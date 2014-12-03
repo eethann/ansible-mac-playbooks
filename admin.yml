@@ -7,24 +7,9 @@
   user: '{{ admin_user }}'
 
   vars: 
-    homebrew_apps:
-      - git
-      - node
-      - python
-      - python3
-    cask_apps:
-      - sublime-text3
-      - kaleidoscope
-      - sourcetree
-      - sublime-text3
-      - vagrant
-      - virtualbox
     username: '{{ ansible_ssh_user }}'
     dock_apps:
-      - /Applications/Safari.app
       - /Applications/Google Chrome.app
-      - /Applications/Kaleidoscope.app
-      - /Applications/Sublime Text.app
       - /Applications/SourceTree.app
       - /Applications/Utilities/Terminal.app
     dock_others:
@@ -34,8 +19,11 @@
     - global-prefs
     - { role: finder, when: user_lib is defined and user_lib_prefs is defined }
     - { role: dock, when: user_lib is defined and user_lib_prefs is defined }
-    - { role: homebrew, apps: "{{ homebrew_apps }}" }
-    - { role: homebrew_cask, apps: "{{ cask_apps }}" }
+    - { role: homebrew }
+    - { role: homebrew_cask }
+    - { role: dotfiles } # TODO make dotfiles repo configurable
+    - { role: drupal-dev }
+    - { role: js-dev }
 
   pre_tasks: 
     - set_fact: user_home=/Users/{{ ansible_ssh_user }}

@@ -1,0 +1,28 @@
+---
+## Install prezto
+
+- hosts: all
+
+  vars:
+    distro: ${ansible_distribution}
+    pkg_mgr: ${ansible_pkg_mgr}
+
+  tasks:
+    # - name: Install git and zsh 
+    #   with_items:
+    #    - git
+    #    - zsh
+    - name: Clone my prezto repo
+      git: repo=https://github.com/eethann/prezto.git dest={{ user_home }}/.zprezto 
+    - name: symlink zlogin into home
+      file: src={{ user_home }}/.zprezto/runcoms/zlogin dest={{ user_home }}/.zlogin state=link
+    - name: symlink zlogout into home
+      file: src={{ user_home }}/.zprezto/runcoms/zlogout dest={{ user_home }}/.zlogout state=link
+    - name: symlink zpreztorc into home
+      file: src={{ user_home }}/.zprezto/runcoms/zpreztorc dest={{ user_home }}/.zpreztorc state=link
+    - name: symlink zprofile into home
+      file: src={{ user_home }}/.zprezto/runcoms/zprofile dest={{ user_home }}/.zprofile state=link
+    - name: symlink zshenv into home
+      file: src={{ user_home }}/.zprezto/runcoms/zshenv dest={{ user_home }}/.zshenv state=link
+    - name: symlink zshrc into home
+      file: src={{ user_home }}/.zprezto/runcoms/zshrc dest={{ user_home }}/.zshrc state=link

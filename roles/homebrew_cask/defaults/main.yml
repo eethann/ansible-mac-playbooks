@@ -1,11 +1,58 @@
 ---
 
 apps:
-  - adobe-creative-cloud
   - google-chrome
-  - kaleidoscope
   - sourcetree
-  - sublime-text3
-  - transmit
   - vagrant
   - virtualbox
+  - iterm2
+  - java 
+  - sequel-pro
+  - parallels
+  - vmware-fusion
+  - adium
+  - airserver
+  - alfred
+  - android-file-transfer
+  - atom
+  - bartender
+  - bettertouchtool
+  - carbon-copy-cloner
+  - chronomate
+  - cog
+  - colorpicker-developer
+  - dash
+  - double-commander
+  - dropbox
+  - fantastical
+  - firefox
+  - flux
+  - font-inconsolata
+  - font-inconsolata-g-for-powerline
+  - hipchat
+  - slack
+  - istat-menus
+  - launchrocket
+  - libreoffice
+  - lighttable
+  - mailbox
+  - marked
+  - mjolnir
+  - mucommander
+  - nvalt
+  - pd-extended
+  - porthole
+  - rescuetime
+  - shortcat
+  - silverlight
+  - sketch
+  - skitch
+  - skype
+  - soundcleod
+  - soundflower
+  - spotify
+  - supercollider
+  - totalfinder
+  - totalterminal
+  - transmission
+

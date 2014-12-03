@@ -5,7 +5,42 @@ apps:
   - node
   - python
   - python3
+  - ack
+  - cclive 
+  - ccrypt 
+  - coreutils 
+  - curl 
+  - elinks 
+  - fuse4x-kext 
+  - gawk 
+  - git 
+  - git-extras 
+  - git-flow 
+  - global 
+  - gnu-sed 
+  - grc 
+  - libmpc 
+  - midnight-commander 
+  - multitail 
+  - osxfuse 
+  - p7zip 
+  - pass 
+  - pidof 
+  - pstree 
+  - reattach-to-user-namespace 
+  - rlwrap 
+  - speedtest_cli 
+  - subversion 
+  - the_silver_searcher 
+  - tig 
+  - unar 
+  - unrar 
+  - tmux 
+  - wemux 
+  - wget 
+  - gpg
+  - ranger
 
-homebrew_paths:
-  - /usr/local
-  - /Library/Caches/Homebrew
+  homebrew_paths:
+    - /usr/local
+    - /Library/Caches/Homebrew

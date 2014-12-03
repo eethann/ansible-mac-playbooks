@@ -1,0 +1,19 @@
+---
+    - name: install drupal nginx Vagrant dir
+      git: repo=ssh://git@github.com/eethann/drupaldev-vm.git dest={{ user_home }}/VMs/drupal.dev
+    - name: install dnsmasq
+      homebrew: name=dnsmasq state=present
+    - name: set up dnsmasq.conf
+      template: src=dev-vm-dns.conf.j2 dest={{ user_home }}/VMs/dev-vm-dns.conf
+    - name: set up dnsmasq.conf
+      template: src=dnsmasq.conf.j2 dest=/usr/local/etc/dnsmasq.conf
+    - name: set up dnsmasq resolver
+      template: src=resolv.dnsmasq.conf.j2 dest=/etc/resolv.dnsmasq.conf owner=root group=wheel
+      sudo: true
+    - name: load dnsmasq launchctl
+      command: sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+      sudo: true
+    - name: Install dev documentation tools
+      homebrew: name={{ item }} state=present
+      with_items:
+        - plantuml

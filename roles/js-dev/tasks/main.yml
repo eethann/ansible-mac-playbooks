@@ -1,0 +1,14 @@
+---
+- name: install nvm
+  git: repo=https://github.com/creationix/nvm.git dest=~/.nvm version=v0.17.2
+- name: install global js tools
+  npm: name={{ item }} global=yes
+  with_items:
+    - tern
+    - gulp
+    - grunt-cli
+    - bower
+- name: Install dev documentation tools
+  homebrew: name={{ item }} state=present
+  with_items:
+    - plantuml

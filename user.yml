@@ -9,19 +9,6 @@
   vars_files:
     - vars/user.yml
 
-  vars:
-    homebrew_apps:
-      - git
-    cask_apps:
-      - adobe-creative-cloud
-      - google-chrome
-      - kaleidoscope
-      - sourcetree
-      - sublime-text3
-      - transmit
-      - vagrant
-      - virtualbox
-
   pre_tasks:
     - name: Check if user exists
       stat: path=/Users/{{ username }}
@@ -76,8 +63,9 @@
   roles:
     - global-prefs
     - { role: new-user, image: "{{ account_image.results[0].item | basename}}", when: not check_user.stat.exists }
-    - { role: homebrew, apps: "{{ homebrew_apps }}" }
-    - { role: homebrew_cask, apps: "{{ cask_apps }}" }
+    # Use defaults in the roles
+    - { role: homebrew }
+    - { role: homebrew_cask }
     - { role: safari, when: user_lib is defined and user_lib_prefs is defined }
     - { role: finder, when: user_lib is defined and user_lib_prefs is defined }
     - { role: dock, when: user_lib is defined and user_lib_prefs is defined }

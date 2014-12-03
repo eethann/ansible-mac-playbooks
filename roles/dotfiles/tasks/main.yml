@@ -1,0 +1,10 @@
+---
+- include: prezto.yml
+- name: Checkout the HomeShick Git
+  git: repo=git://github.com/andsens/homeshick.git dest={{ user_home }}/.homesick/repos/homeshick
+- name: Update zshhrc to have homeshick initialization
+  lineinfile: dest={{ user_home }}/.zshrc line="source {{ user_home }}/.homesick/repos/homeshick/homeshick.sh" regexp='homeshick'
+- name: Clone my dotfile Repo
+  git: repo=git://github.com/eethann/dotfiles.git dest={{ user_home }}/.homesick/repos/dotfiles
+- name: Link out dotfiles
+  command: {{user_home}}/.homesick/repos/homeshick/bin/homeshick link dotfiles -f -q
